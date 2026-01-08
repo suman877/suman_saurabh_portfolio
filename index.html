@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suman Saurabh | Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   ROOT THEME (ROYAL)
+========================= */
+:root {
+  --bg: #0b0d12;
+  --card: #141826;
+  --text: #e6e8ee;
+  --muted: #9aa4bf;
+  --gold: #d4af37;
+  --accent: #4f8cff;
+  --border: rgba(255,255,255,0.08);
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at top, #11162a, #07080d);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: rgba(10,12,20,0.75);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+
+.nav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--gold);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 90px 24px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero h2 {
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  font-weight: 700;
+}
+
+.hero span {
+  color: var(--gold);
+}
+
+.hero p {
+  margin-top: 20px;
+  color: var(--muted);
+  max-width: 560px;
+}
+
+.hero button {
+  margin-top: 35px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--gold), #f5d76e);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.hero button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(212,175,55,0.35);
+}
+
+/* =========================
+   PROFILE IMAGE
+========================= */
+.profile-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.profile {
+  width: 280px;
+  height: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+}
+
+.profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.6));
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about p {
+  max-width: 760px;
+  color: var(--muted);
+}
+
+/* =========================
+   SKILLS
+========================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 18px;
+}
+
+.skill {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: transform 0.25s, border 0.25s;
+}
+
+.skill:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+/* =========================
+   PROJECTS & WRITING
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: linear-gradient(180deg, #161a2b, #0f1220);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.tag {
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  background: rgba(212,175,55,0.15);
+  color: var(--gold);
+  border-radius: 6px;
+}
+
+.links a {
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-right: 16px;
+}
+
+/* =========================
+   RESUME
+========================= */
+.resume-box {
+  background: linear-gradient(135deg, #1a1f35, #0e1120);
+  border: 1px solid var(--border);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.resume-box a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 26px;
+  background: linear-gradient(135deg, var(--gold), #f5d76e);
+  color: #000;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 50px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--gold);
+  margin: 0 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero p {
+    margin: auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <h1>SUMAN SAURABH</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>Engineering Thought,<br><span>Building Meaning</span></h2>
+    <p>
+      Fresher software professional with strong analytical thinking, technical skills,
+      and a rare ability to communicate complex ideas clearly across technology,
+      philosophy, and public awareness.
+    </p>
+    <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+      View My Work
+    </button>
+  </div>
+
+  <div class="profile-wrap">
+    <div class="profile">
+      <img src="https://res.cloudinary.com/divek5gyz/image/upload/v1767888352/IMG_20260108_213035_kvrfjh.png" alt="Suman Saurabh">
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2 class="section-title">About Me</h2>
+  <p>
+    I am a motivated fresher driven by problem-solving, systems thinking,
+    and ethical technology development. My goal is to contribute to impactful
+    projects while continuously learning across software development,
+    cybersecurity awareness, and responsible innovation.
+  </p>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill">HTML5</div>
+    <div class="skill">CSS3</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Python</div>
+    <div class="skill">SQL</div>
+    <div class="skill">React</div>
+    <div class="skill">Git & GitHub</div>
+    <div class="skill">Analytical Thinking</div>
+	<div class="skill">Problem Solving</div>
+	<div class="skill">Critical Thinking</div>
+	<div class="skill">Emotional Intelligence</div>
+	<div class="skill">Excellent Communication & Presentation Skills</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Featured Projects</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Suman Terminal</h3>
+      <p>Suman Terminal is a fun, interactive web-based terminal simulator that recreates a command-line interface directly in your browser. Built with HTML, CSS, and JavaScript. The developer presents interest in cybertechs in a retro terminal style with a geeky, hacker-inspired twist!<div style="max-width: 600px; margin: 40px auto; padding: 30px; background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); font-family: 'Courier New', monospace; color: #0f0; border: 1px solid #00ff41;">
+  <h2 style="text-align: center; margin-top: 0; color: #00ff41; text-shadow: 0 0 10px #00ff41; letter-spacing: 2px;">
+    ⚠️ Hidden Easter Egg in Suman Terminal ⚠️
+  </h2>
+  <p style="line-height: 1.8; font-size: 16px;">
+    <strong>How To Use:</strong>
+  </p>
+  <ol style="line-height: 2; padding-left: 30px; font-size: 15px;">
+    <li>Click/tap multiple times (usually 7) on the presented interface.</li>
+    <li>Copy the authentication key. You are going to use it later.</li>
+    <li>On the bottom-left corner a bigger font code will appear. Just click that 3 times.</li>
+    <li>Now enjoy freaking your friends out. 😈</li>
+    <li>Don't worry — it's just a simulation! If it asks for OK/CANCEL, only a virtual screening is playing. Nothing is being harmed.</li>
+  </ol>
+  <p style="text-align: center; font-weight: bold; color: #00ff41; text-shadow: 0 0 8px #00ff41; margin-top: 30px;">
+    YOU ARE SAFE. 🔒
+  </p>
+  <p style="text-align: center; margin-top: 20px;">
+    <a href="https://suman877.github.io/sumanterminal/" target="_blank" style="display: inline-block; padding: 12px 24px; background: #00ff41; color: #000; font-weight: bold; text-decoration: none; border-radius: 8px; box-shadow: 0 0 15px #00ff41; transition: all 0.3s;">
+      Try It Now 🚀
+    </a>
+  </p>
+</div></p>
+      <div class="tags">
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Analytical & Critical Thinking</span>
+      </div>
+      <div class="links">
+        <a href="https://suman877.github.io/sumanterminal/">Live</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Cardcraft</h3>
+      <p>CardCraft is an interactive web tool called "Article Card — Ultra UX" that lets you design and generate beautiful, export-ready article summary cards. With real-time live previews, you can customize fields like title, date, category, reader info, sub-read, and key takeaways. Features include quick-fill options, character counters, reset functionality, and downloads as PNG or PDF. It's QR-embedded and print-ready—perfect for content creators, bloggers, or social media sharers looking for sleek, professional article thumbnails! <div style="max-width: 600px; margin: 40px auto; padding: 30px; background: linear-gradient(135deg, #121212, #1e1e1e, #2d1b69); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); font-family: 'Segoe UI', sans-serif; color: #e0e0e0; border: 1px solid #bb86fc;">
+  <h2 style="text-align: center; margin-top: 0; color: #bb86fc; text-shadow: 0 0 10px #bb86fc; letter-spacing: 1.5px;">
+    ✨ CardCraft — Article Card Ultra UX ✨
+  </h2>
+  <p style="line-height: 1.7; font-size: 16px; text-align: center;">
+    An interactive web tool to design and generate beautiful, export-ready article summary cards with real-time live previews.
+  </p>
+  <p style="line-height: 1.8; font-size: 15px;">
+    <strong>Key Features:</strong>
+  </p>
+  <ul style="line-height: 1.9; padding-left: 30px; font-size: 15px;">
+    <li>Customize title, date, category, reader info, read time, takeaways, and more</li>
+    <li>Instant live preview as you type</li>
+    <li>Quick-fill options, character counters, and reset functionality</li>
+    <li>Embed QR codes automatically</li>
+    <li>Download as high-quality PNG or PDF</li>
+    <li>Print-ready and perfect for social media thumbnails</li>
+  </ul>
+  <p style="text-align: center; font-style: italic; color: #cfcfcf; margin-top: 20px;">
+    Ideal for content creators, bloggers, and anyone sharing sleek article summaries!
+  </p>
+  <p style="text-align: center; margin-top: 30px;">
+    <a href="https://suman877.github.io/cardcraft/" target="_blank" style="display: inline-block; padding: 14px 28px; background: #bb86fc; color: #121212; font-weight: bold; text-decoration: none; border-radius: 50px; box-shadow: 0 0 20px rgba(187, 134, 252, 0.6); transition: all 0.3s; font-size: 18px;">
+      Create Your Card Now 🎨
+    </a>
+  </p>
+</div></p>
+      <div class="tags">
+        <span class="tag">Html</span><span class="tag">CSS</span><span class="tag">Design Thinking</span><span class="tag">JavaScript</span><span class="tag">LocalStorage</span>
+      </div>
+      <div class="links">
+        <a href="https://suman877.github.io/cardcraft/">Live</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="writing">
+  <h2 class="section-title">Writing & Thought Leadership</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Suman Saurabh Writes</h3>
+      <p>Suman Saurabh Writes is my inner sanctum of creative expression and conscious self-inquiry. Through evocative Hindi poetry and reflective English prose, I explore spirituality, devotion, surrender, and the subtle illusions of Maya. Drawing inspiration from the metaphysical presence of Shiva, my writing moves through themes of divine love, human longing, nature’s intelligence, and the silent pursuit of awakening. Each piece emerges from introspection rather than performance—verses and reflections that do not instruct, but invite the reader inward, toward stillness, awareness, and timeless truths beyond surface reality.</p>
+      <div class="tags">
+        <span class="tag">Writing</span><span class="tag">Philosophy</span>
+      </div>
+      <div class="links">
+        <a href="https://sumansaurabhwrites.wordpress.com" target="_blank">Visit</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Sumansophy</h3>
+      <p>Sumansophy is the articulation of my worldview as a global citizen—where philosophy meets reason, speculation meets responsibility. Writing in thoughtful English prose, I examine unconventional ideas across ancient history, socio-economic systems, consumer psychology, cosmic mysteries, artificial intelligence, and management as a universal principle. From reinterpreting epics like the Mahabharata as possible historical realities to questioning AI’s long-term risks to humanity, this blog reflects my stance as “a common man with uncommon ideas.” It seeks not to conclude, but to challenge assumptions, expand perspectives, and provoke rational yet imaginative inquiry into humanity’s shared future.</p>
+      <div class="tags">
+        <span class="tag">AI Ethics</span><span class="tag">Systems Thinking</span>
+      </div>
+      <div class="links">
+        <a href="https://sumansophy.wordpress.com" target="_blank">Visit</a>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="card">
+      <h3>Writings on Medium</h3>
+      <p>My Medium platform is driven by civic responsibility and national consciousness. Writing in Hindi, I address pressing societal, environmental, and technological challenges shaping modern India. My articles explore the widening gap between rapid environmental change and human health, along with emerging forms of crime and vulnerability in a deeply digital society. Concise yet penetrating, these pieces are grounded in real-world implications rather than abstraction. This body of work reflects my role as a concerned citizen, using words as a tool to awaken awareness, encourage adaptation, and contribute thoughtfully to India’s evolving socio-digital landscape..</p>
+      <div class="tags">
+        <span class="tag">Social Issues India</span><span class="tag">Civic Responsibility</span><span class="tag">Digital Society</span>
+      </div>
+      <div class="links">
+        <a href="https://medium.com/@sumansaurabhg.l.o.a.t" target="_blank">Visit</a>
+      </div>
+    </div>
+</section>
+
+<section>
+  <h2 class="section-title">Resume</h2>
+  <div class="resume-box">
+    <p>Download my resume for detailed education and experience.</p>
+    <a href="https://atscv.tiiny.site/" download>Download Resume</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>
+    <a href="mailto:sumansaurabh9620@gmail.com">sumansaurabh9620@gmail.com</a> |
+    <a href="https://www.linkedin.com/in/suman-saurabh11">LinkedIn</a> |
+    <a href="https://github.com/suman877">GitHub</a>
+  </p>
+  <p>© 2026 Suman Saurabh</p>
+</footer>
+
+</body>
+</html>
